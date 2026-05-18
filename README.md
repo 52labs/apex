@@ -43,7 +43,7 @@ This system was built from three poster references shared by the user. **No code
 `preset.json` packages the Apex tokens as a shadcn [registry-item](https://ui.shadcn.com/schema/registry-item.json) (Tailwind v4). To apply it to any shadcn-initialized project:
 
 ```bash
-npx shadcn@latest add https://raw.githubusercontent.com/knowsuchagency/apex/main/preset.json
+npx shadcn@latest add https://raw.githubusercontent.com/52labs/apex/main/preset.json
 ```
 
 What lands in your project:
