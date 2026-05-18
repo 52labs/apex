@@ -3,7 +3,7 @@
   "name": "apex",
   "type": "registry:style",
   "title": "Apex",
-  "description": "Apex design system as a shadcn preset — industrial AI-operations brand. Warm paper, near-black ink, vermilion-orange accent. Hard edges, square chrome, Archivo + JetBrains Mono + Workbench dot-matrix.",
+  "description": "Apex design system as a shadcn preset — industrial AI-operations brand. Warm paper, near-black ink, vermilion-orange accent. Hard edges, square chrome, Archivo + Archivo Narrow + IBM Plex Sans + JetBrains Mono + Workbench dot-matrix.",
   "cssVars": {
     "theme": {
       "color-background": "var(--background)",
@@ -48,6 +48,7 @@
       "font-sans": "'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif",
       "font-display": "'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif",
       "font-condensed": "'Archivo Narrow', 'Archivo', 'Helvetica Neue Condensed', sans-serif",
+      "font-reading": "'IBM Plex Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
       "font-mono": "'JetBrains Mono', 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace",
       "font-dot": "'Workbench', 'JetBrains Mono', monospace",
       "radius-sm": "calc(var(--radius) - 4px)",

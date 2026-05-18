@@ -48,14 +48,14 @@ npx shadcn@latest add https://raw.githubusercontent.com/52labs/apex/main/preset.
 
 What lands in your project:
 - `:root` / `.dark` CSS variables -- `--background`, `--foreground`, `--primary`, `--border`, `--radius`, `--chart-1..5`, etc. mapped to Apex's paper + ink + vermilion surfaces. Light is the canonical theme; dark provides a respectful inverse so the shadcn theme toggle keeps working.
-- An `@theme inline` block exposing the full Apex palette as Tailwind utilities -- `bg-apex-paper`, `text-apex-ink`, `bg-apex-orange`, `text-apex-orange-deep`, `bg-apex-signal-amber`, `font-display`, `font-mono`, `font-dot`, `ease-apex-out`, and friends.
+- An `@theme inline` block exposing the full Apex palette as Tailwind utilities -- `bg-apex-paper`, `text-apex-ink`, `bg-apex-orange`, `text-apex-orange-deep`, `bg-apex-signal-amber`, `font-display`, `font-condensed`, `font-reading`, `font-mono`, `font-dot`, `ease-apex-out`, and friends. (`font-sans` defaults to Archivo to match Apex's `html, body`; opt into IBM Plex Sans for long-form prose via `font-reading`.)
 - Default `--radius: 0rem` (Apex is hard-edged). `radius-sm/md/lg/xl` cascade off `--radius`, so all shadcn components render square by default; opt into 2px inputs / 4px chips via `rounded-apex-input` / `rounded-apex-chip`.
 - A brand-aligned text selection color (orange-on-paper).
 
-**Fonts are not bundled.** The preset declares `font-display` / `font-condensed` / `font-mono` / `font-dot` families but does not load the webfonts. Add the imports to your project's `globals.css`:
+**Fonts are not bundled.** The preset declares `font-display` / `font-condensed` / `font-sans` / `font-reading` / `font-mono` / `font-dot` families but does not load the webfonts. Add the imports to your project's `globals.css`:
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Workbench:BLED,SCAN@-50..100,-50..50&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Workbench:BLED,SCAN@-50..100,-50..50&display=swap');
 ```
 
 Prerequisites: a project with `components.json` (run `npx shadcn@latest init` if needed) and Tailwind v4.
@@ -124,6 +124,7 @@ Backgrounds are **never pure white** -- always warm paper (`#E9E7E2`). Black is 
 
 ### Typography
 - **Display:** A neutral grotesque (we're using **Archivo** as the Google Fonts substitute - see "Font substitutions" below). Tight tracking, heavy weights (700-900) for headlines. The mega-display use is the signature move: oversized, all caps, sometimes with an orange parallelogram bar slicing horizontally through it.
+- **Sans (body / reading):** **IBM Plex Sans**. Used for long-form copy (articles, marketing body, docs) via `.prose` / `.reading`. The display grotesque (Archivo) is too tight for reading blocks; Plex Sans is tuned for legibility at small sizes.
 - **Mono:** **JetBrains Mono** (substitute). Used pervasively for metadata, IDs, labels, eyebrows, log copy. The mono presence is what gives Apex its "operations terminal" feel - easily 30%+ of every layout is mono.
 - **Dot-matrix:** **Workbench** (Google Fonts variable dot-matrix). Reserved for poster-grade hero headlines on a small subset of compositions (see `poster-orbital-systems.png`).
 - **Condensed:** **Archivo Narrow** for vertical or stacked secondary type.
@@ -225,6 +226,7 @@ For functional UI iconography (where the poster glyphs aren't enough - e.g. a da
 > |---|---|---|
 > | Display | **Archivo** (400-900) | Neue Haas Grotesk Display / Helvetica Now Display |
 > | Condensed | **Archivo Narrow** | Helvetica Neue Condensed |
+> | Sans (body / reading) | **IBM Plex Sans** | IBM Plex Sans / Inter Tight |
 > | Mono | **JetBrains Mono** | IBM Plex Mono / Berkeley Mono |
 > | Dot-matrix | **Workbench** (variable) | Custom LED dot-matrix face |
 >
