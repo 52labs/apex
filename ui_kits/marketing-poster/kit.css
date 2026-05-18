@@ -179,12 +179,6 @@ body { padding: 32px; font-family: var(--font-display); }
 }
 .ascii.accent { color: var(--orange); }
 
-/* ----- RegistrationMark ----- */
-.reg-mark {
-  font-family: var(--font-mono);
-  color: var(--ink-ghost);
-}
-
 /* ----- Background data bars (for Orbital Systems composition) ----- */
 .databars {
   position: absolute; left: 0; right: 0; bottom: 0; top: 50%;

@@ -16,5 +16,4 @@ Recreates the poster system that defines the Apex visual identity. Three of the 
 | `DotMatrixHeadline` | Workbench dot-matrix display. |
 | `VerticalText` | Rotated label, used for `NEW YORK CITY` / `U.S.A` style edge type. |
 | `SystemLog` | The Observation / Inference / Action callout block. |
-| `RegistrationMark` | Ghosted `®` glyph, placeable near brand marks. |
 | `AsciiSeparator` | A run of `*`, `/`, or `>` characters in mono. |

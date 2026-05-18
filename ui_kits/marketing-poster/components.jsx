@@ -90,11 +90,6 @@ function VerticalText({ children, tone = "ink", style }) {
   return <span className={`vert ${tone === "ghost" ? "ghost" : ""}`} style={style}>{children}</span>;
 }
 
-// ---------- RegistrationMark ----------
-function RegistrationMark({ size = 18, style }) {
-  return <span className="reg-mark" style={{ fontSize: size, ...style }}>®</span>;
-}
-
 // ---------- AsciiSeparator ----------
 function AsciiSeparator({ char = "*", count = 40, accent = false, style }) {
   return <span className={`ascii ${accent ? "accent" : ""}`} style={style}>{char.repeat(count)}</span>;
@@ -117,5 +112,5 @@ function SystemLog({ title = "[ SYSTEM INSIGHT LOG ]", entries, footer, style })
 Object.assign(window, {
   PosterStage, CornerMarker, EyebrowChip, MetaRow,
   MegaHeadline, DotMatrixHeadline, VerticalText,
-  RegistrationMark, AsciiSeparator, SystemLog,
+  AsciiSeparator, SystemLog,
 });

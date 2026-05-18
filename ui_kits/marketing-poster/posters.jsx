@@ -54,9 +54,6 @@ function PosterApexLogistics() {
           }}>APEX</div>
           {/* vertical NEW YORK CITY block (centered in gap) */}
           <div style={{ position: "relative", zIndex: 2, flexShrink: 0, alignSelf: "center", display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <span style={{
-              fontFamily: "var(--font-mono)", fontSize: 20, color: "var(--ink)", marginBottom: 2,
-            }}>®</span>
             <div style={{
               fontFamily: "var(--font-display)", fontWeight: 700,
               fontSize: 40, letterSpacing: "-0.02em", lineHeight: 1, color: "var(--ink)",
@@ -123,11 +120,8 @@ function PosterApexLabs() {
 
       {/* Left stacked headline */}
       <div style={{ position: "absolute", top: 100, left: 28 }}>
-        <div style={{ position: "relative", display: "inline-flex", alignItems: "baseline" }}>
-          <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 132, letterSpacing: "-0.045em", lineHeight: 0.95, color: "var(--ink)" }}>
-            Apex&nbsp;Labs
-          </span>
-          <span style={{ marginLeft: 6, color: "var(--ink-ghost)", fontFamily: "var(--font-mono)", fontSize: 56, alignSelf: "flex-start" }}>®</span>
+        <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 132, letterSpacing: "-0.045em", lineHeight: 0.95, color: "var(--ink)" }}>
+          Apex&nbsp;Labs
         </div>
         <div style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: 132, letterSpacing: "-0.045em", lineHeight: 0.95, color: "var(--ink)" }}>
           New&nbsp;York&nbsp;City

@@ -179,7 +179,6 @@ Backgrounds are **never pure white** -- always warm paper (`#E9E7E2`). Black is 
 
 ### Layout rules - fixed elements
 - The **corner-bracket** is a brand element: small square orange marker top-left + top-right (and sometimes all four corners), or an orange L-bracket at all four corners (see Orbital Systems poster). Use to frame a composition.
-- The **registration mark** (R) floats inline near the brand name, ghosted gray.
 - An **eyebrow chip** (black block, paper text, mono) is the standard top-of-composition label.
 
 ### What to avoid
