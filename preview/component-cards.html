@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 18px 22px; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; margin-bottom: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card {
+    background: var(--paper-0);
+    border: 1px solid var(--ink);
+    padding: 12px;
+    aspect-ratio: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2); }
+  .body { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -0.02em; line-height: 0.95; color: var(--ink); }
+  .bottom { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); }
+  .sq { display: inline-block; width: 6px; height: 6px; background: var(--orange); margin-right: 5px; vertical-align: middle; }
+  .accent .body { color: var(--paper-0); }
+  .accent { background: var(--ink); }
+  .accent .top, .accent .bottom { color: var(--paper-2); }
+  .accent .bottom .live { color: var(--orange); }
+</style></head>
+<body>
+  <div class="meta">CARDS · A CARD IS A MINIATURE POSTER</div>
+  <div class="grid">
+    <div class="card">
+      <div class="top"><span><span class="sq"></span>AX-3897</span><span>R-044</span></div>
+      <div class="body">Freight<br>Throughput</div>
+      <div class="bottom"><span>WESTERN CORRIDOR</span><span>+12.4%</span></div>
+    </div>
+    <div class="card accent">
+      <div class="top"><span>NODE 04 / 12</span><span>® 2026</span></div>
+      <div class="body">Dispatch<br>AI Active</div>
+      <div class="bottom"><span>STATUS</span><span class="live">▪ LIVE</span></div>
+    </div>
+    <div class="card">
+      <div class="top"><span>OSP-01</span><span>V.01</span></div>
+      <div class="body">Closed Loop<br>Energy</div>
+      <div class="bottom"><span>AUTONOMOUS</span><span>OK</span></div>
+    </div>
+  </div>
+</body></html>

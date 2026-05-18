@@ -1,0 +1,31 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 22px; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; margin-bottom: 14px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+  .demo { background: var(--paper-0); height: 80px; display: flex; align-items: center; justify-content: center; padding: 0 20px; }
+  .ink-rule { border: 1px solid var(--ink); }
+  .soft-rule { border: 1px solid var(--paper-2); }
+  .float { box-shadow: 0 12px 32px -8px rgba(17,17,17,0.18); border: 1px solid rgba(17,17,17,0.06); }
+  .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); margin-top: 6px; display: block; }
+  .hint { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); text-transform: uppercase; }
+  .body-text { font-family: var(--font-mono); font-size: 11px; color: var(--ink); letter-spacing: 0.04em; }
+</style></head>
+<body>
+  <div class="meta">ELEVATION · RULES + BG-SHIFTS, NO BLURRED SHADOWS</div>
+  <div class="row">
+    <div>
+      <div class="demo ink-rule"><span class="body-text">1PX INK HAIRLINE</span></div>
+      <span class="lbl">RULE — DEFAULT</span>
+    </div>
+    <div>
+      <div class="demo soft-rule"><span class="body-text">1PX PAPER-2 RULE</span></div>
+      <span class="lbl">RULE-SOFT</span>
+    </div>
+    <div>
+      <div class="demo float"><span class="body-text">FLOATING OVERLAY ONLY</span></div>
+      <span class="lbl">SHADOW-FLOAT — RARE</span>
+    </div>
+  </div>
+</body></html>

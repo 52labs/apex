@@ -1,0 +1,265 @@
+/* =============================================================
+   APEX -- Colors & Typography
+   Base tokens + semantic aliases. Import once at the document root.
+   ============================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Workbench:BLED,SCAN@-50..100,-50..50&display=swap");
+
+:root {
+  /* ---------- COLOR -- RAW ---------- */
+  /* Paper -- warm light gray, never pure white */
+  --paper-0:        #F2F0EB;   /* lightest -- backdrops */
+  --paper:          #E9E7E2;   /* default page background */
+  --paper-1:        #DEDCD6;   /* sunken panels */
+  --paper-2:        #C9C7C2;   /* mid gray, decorative/ghosted type */
+
+  /* Ink -- near-black */
+  --ink:            #111111;   /* primary foreground */
+  --ink-2:          #2A2A2A;   /* secondary foreground */
+  --ink-3:          #5C5C5A;   /* tertiary, captions */
+  --ink-ghost:      #ABA9A3;   /* dropped-out metadata, faint type */
+
+  /* Accent -- vermilion / safety orange */
+  --orange:         #EE5314;
+  --orange-deep:    #C8420C;   /* pressed / hover */
+  --orange-tint:    #F38256;   /* tints, used sparingly */
+
+  /* System */
+  --signal-red:     #D42018;
+  --signal-amber:   #E8A317;
+  --signal-green:   #2E7D32;
+  --signal-blue:    #0F4C81;
+
+  /* ---------- COLOR -- SEMANTIC ---------- */
+  --bg:             var(--paper);
+  --bg-sunk:        var(--paper-1);
+  --bg-raised:      var(--paper-0);
+
+  --fg:             var(--ink);
+  --fg-1:           var(--ink-2);
+  --fg-2:           var(--ink-3);
+  --fg-ghost:       var(--ink-ghost);
+
+  --accent:         var(--orange);
+  --accent-fg:      var(--paper-0);     /* text on orange */
+  --accent-press:   var(--orange-deep);
+
+  --rule:           var(--ink);         /* hairlines are ink, not gray */
+  --rule-soft:      var(--paper-2);
+
+  /* ---------- TYPE -- FAMILIES ---------- */
+  --font-display:   "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-condensed: "Archivo Narrow", "Archivo", "Helvetica Neue Condensed", sans-serif;
+  --font-mono:      "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-dot:       "Workbench", "JetBrains Mono", monospace;   /* dot-matrix display */
+
+  /* ---------- TYPE -- SCALE (px) ---------- */
+  --t-xs:    11px;
+  --t-sm:    13px;
+  --t-base:  15px;
+  --t-md:    17px;
+  --t-lg:    22px;
+  --t-xl:    32px;
+  --t-2xl:   48px;
+  --t-3xl:   72px;
+  --t-4xl:   112px;
+  --t-mega:  168px;
+
+  /* ---------- TRACKING ---------- */
+  --track-tight:  -0.02em;
+  --track-normal: 0;
+  --track-wide:    0.08em;
+  --track-mono:    0.04em;
+
+  /* ---------- SPACING ---------- */
+  --s-0:  0;
+  --s-1:  4px;
+  --s-2:  8px;
+  --s-3:  12px;
+  --s-4:  16px;
+  --s-5:  24px;
+  --s-6:  32px;
+  --s-7:  48px;
+  --s-8:  64px;
+  --s-9:  96px;
+  --s-10: 128px;
+
+  /* ---------- LINE ---------- */
+  --hair:    1px;
+  --rule-w:  2px;
+  --bar-w:   4px;
+
+  /* ---------- RADIUS -- INTENTIONALLY MINIMAL ----------
+     The brand is hard-edged. Use radii only on physical-object
+     mocks; UI chrome should stay square.                        */
+  --r-0:  0;
+  --r-1:  2px;
+  --r-2:  4px;
+
+  /* ---------- SHADOW -- NONE BY DEFAULT ----------
+     Apex avoids soft shadows. Elevation is signaled by
+     bg-color shifts and 1px ink rules. A single utility shadow
+     is provided for floating overlays only.                     */
+  --shadow-float: 0 12px 32px -8px rgba(17,17,17,0.18);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:   cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-in:    cubic-bezier(0.6, 0, 0.8, 0.3);
+  --ease-snap:  cubic-bezier(0.2, 0.9, 0.2, 1.05);
+  --t-fast:     120ms;
+  --t-base-d:   200ms;
+  --t-slow:     400ms;
+}
+
+/* =============================================================
+   SEMANTIC ELEMENT STYLES
+   Drop colors_and_type.css into any page and basic markup
+   already feels like Apex.
+   ============================================================= */
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: var(--t-base);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* --- Display headings -- Archivo Black, tight tracking --- */
+h1, .h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--t-3xl);
+  letter-spacing: var(--track-tight);
+  line-height: 0.92;
+  margin: 0;
+  text-wrap: balance;
+}
+h2, .h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-2xl);
+  letter-spacing: var(--track-tight);
+  line-height: 0.96;
+  margin: 0;
+}
+h3, .h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-xl);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  margin: 0;
+}
+h4, .h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--t-lg);
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* --- Mega display -- used on posters, hero banners ---
+   The poster-style oversize headline ("APEX LOGISTICS").    */
+.mega {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(72px, 14vw, var(--t-mega));
+  letter-spacing: -0.025em;
+  line-height: 0.84;
+  text-transform: uppercase;
+}
+
+/* --- Condensed display -- secondary hero --- */
+.condensed {
+  font-family: var(--font-condensed);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* --- Body --- */
+p, .body {
+  font-family: var(--font-display);
+  font-size: var(--t-base);
+  line-height: 1.55;
+  color: var(--fg-1);
+  margin: 0 0 var(--s-4);
+  text-wrap: pretty;
+}
+.body-sm { font-size: var(--t-sm); line-height: 1.5; }
+.lead    { font-size: var(--t-md); line-height: 1.5; color: var(--fg); }
+
+/* --- Mono -- technical metadata, IDs, labels ---
+   This is the "operations terminal" voice. Tracked, uppercase
+   when used as a label, sentence-case for log/insight copy.    */
+.mono, code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  letter-spacing: var(--track-mono);
+}
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--fg);
+}
+.label-ghost {
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  color: var(--fg-ghost);
+}
+
+/* --- Eyebrow chip -- black block w/ paper text, monospace --- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--t-xs);
+  letter-spacing: var(--track-wide);
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper-0);
+  padding: 4px 8px 3px;
+  line-height: 1;
+}
+.eyebrow.accent {
+  background: var(--orange);
+  color: var(--paper-0);
+}
+
+/* --- Dot-matrix display -- for poster-grade hero lines --- */
+.dot-matrix {
+  font-family: var(--font-dot);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  font-variation-settings: "BLED" -50, "SCAN" 0;
+}
+
+/* --- Code blocks / "system log" --- */
+pre, .log {
+  font-family: var(--font-mono);
+  font-size: var(--t-sm);
+  line-height: 1.55;
+  white-space: pre-wrap;
+  color: var(--fg-1);
+}
+
+/* --- Hairline rule --- */
+hr, .rule {
+  border: 0;
+  height: var(--hair);
+  background: var(--rule);
+  margin: var(--s-5) 0;
+}
+.rule-soft { background: var(--rule-soft); }
+
+/* --- Selection --- */
+::selection { background: var(--orange); color: var(--paper-0); }

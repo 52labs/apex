@@ -1,0 +1,33 @@
+/* Shared base for preview cards. Keep cards self-contained but
+   share this skeleton to stop boilerplate from drifting. */
+@import url("../colors_and_type.css");
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper-0);
+  color: var(--ink);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  padding: 20px 24px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

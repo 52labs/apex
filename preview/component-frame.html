@@ -1,0 +1,60 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 0; background: var(--paper); }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; padding: 14px 22px 0; }
+  .frame {
+    position: relative;
+    margin: 12px 22px 18px;
+    height: 100px;
+    background: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .bracket {
+    position: absolute;
+    width: 18px; height: 18px;
+    border-color: var(--orange);
+    border-style: solid;
+    border-width: 0;
+  }
+  .tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; }
+  .tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; }
+  .bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; }
+  .br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; }
+  .sq {
+    position: absolute;
+    width: 12px; height: 12px;
+    background: var(--orange);
+  }
+  .stl { top: 14px; left: 14px; }
+  .str { top: 14px; right: 14px; }
+  .row {
+    position: absolute;
+    left: 36px; right: 36px; top: 14px;
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink);
+  }
+  .demo-label { padding-top: 16px; }
+</style></head>
+<body>
+  <div class="meta">CORNER BRACKETS · CANVAS FRAMING</div>
+  <div class="frame">
+    <span class="bracket tl"></span>
+    <span class="bracket tr"></span>
+    <span class="bracket bl"></span>
+    <span class="bracket br"></span>
+    <span class="sq stl"></span>
+    <span class="sq str"></span>
+    <span class="row" style="padding-top:0; top:14px; left:36px; right:36px;">
+      <span>SPACE TESTED</span><span>/</span><span>ENERGY CAPTURE</span>
+    </span>
+    <span class="demo-label">SYSTEM FRAME</span>
+  </div>
+</body></html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 18px 22px; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; margin-bottom: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .sw { aspect-ratio: 1.4; display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px; color: var(--paper-0); }
+  .role { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .hex  { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.04em; opacity: 0.85; }
+</style></head>
+<body>
+  <div class="meta">SIGNAL · STATUS COLORS · USE SPARINGLY</div>
+  <div class="grid">
+    <div class="sw" style="background:#D42018;"><div class="role">RED · ERROR</div><div class="hex">#D42018</div></div>
+    <div class="sw" style="background:#E8A317;"><div class="role">AMBER · WARN</div><div class="hex">#E8A317</div></div>
+    <div class="sw" style="background:#2E7D32;"><div class="role">GREEN · OK</div><div class="hex">#2E7D32</div></div>
+    <div class="sw" style="background:#0F4C81;"><div class="role">BLUE · INFO</div><div class="hex">#0F4C81</div></div>
+  </div>
+</body></html>

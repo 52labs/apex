@@ -1,0 +1,36 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 14px 22px; overflow: hidden; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; margin-bottom: 4px; }
+  .mega-wrap { position: relative; }
+  .mega {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 140px;
+    letter-spacing: -0.03em;
+    line-height: 0.84;
+    text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .bar {
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    top: 52%;
+    transform: translateY(-50%) skewX(-20deg);
+    height: 60px;
+    background: var(--orange);
+    z-index: 0;
+    mix-blend-mode: multiply;
+  }
+  .mega { position: relative; z-index: 1; }
+</style></head>
+<body>
+  <div class="meta">MEGA DISPLAY · ARCHIVO BLACK · WITH ACCENT BAR</div>
+  <div class="mega-wrap">
+    <div class="bar"></div>
+    <div class="mega">APEX</div>
+  </div>
+</body></html>

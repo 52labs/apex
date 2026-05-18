@@ -1,0 +1,44 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 18px 22px; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; margin-bottom: 14px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
+  .field { display: flex; flex-direction: column; gap: 4px; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); }
+  .inp {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 8px 10px;
+    background: var(--paper-0);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .inp:focus { border-color: var(--orange); box-shadow: 0 0 0 2px var(--orange); }
+  .hint { font-family: var(--font-mono); font-size: 10px; color: var(--fg-2); letter-spacing: 0.04em; }
+  .check {
+    width: 14px; height: 14px; border: 1px solid var(--ink); display: inline-flex; align-items: center; justify-content: center; background: var(--paper-0);
+  }
+  .check.checked { background: var(--orange); border-color: var(--orange); color: var(--paper-0); font-family: var(--font-mono); font-size: 10px; }
+  .row { display: flex; gap: 8px; align-items: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--ink); }
+</style></head>
+<body>
+  <div class="meta">FORM INPUTS · MONO · 1PX INK BORDER · ORANGE FOCUS</div>
+  <div class="grid">
+    <div class="field">
+      <span class="lbl">VEHICLE ID</span>
+      <input class="inp" value="AX-3897">
+      <span class="hint">format: AX-####</span>
+    </div>
+    <div class="field">
+      <span class="lbl">ROUTE</span>
+      <input class="inp" placeholder="EST-—" style="border-color: var(--orange); box-shadow: 0 0 0 2px var(--orange);">
+      <span class="hint">focused</span>
+    </div>
+    <div class="row"><span class="check checked">✓</span> AUTONOMOUS DISPATCH</div>
+    <div class="row"><span class="check"></span> HUMAN VALIDATION REQUIRED</div>
+  </div>
+</body></html>

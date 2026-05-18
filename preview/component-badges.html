@@ -1,0 +1,40 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 18px 22px; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; margin-bottom: 12px; }
+  .row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 7px 3px;
+    line-height: 1;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .dot { width: 6px; height: 6px; display: inline-block; }
+  .active { border-color: var(--signal-green); color: var(--signal-green); }
+  .warn   { border-color: var(--signal-amber); color: var(--signal-amber); }
+  .err    { border-color: var(--signal-red); color: var(--signal-red); }
+  .info   { border-color: var(--signal-blue); color: var(--signal-blue); }
+  .ink-fill { background: var(--ink); color: var(--paper-0); border-color: var(--ink); }
+  .accent-fill { background: var(--orange); color: var(--paper-0); border-color: var(--orange); }
+</style></head>
+<body>
+  <div class="meta">BADGES · STATUS · CHIPS</div>
+  <div class="row">
+    <span class="badge active"><span class="dot" style="background:var(--signal-green)"></span>ACTIVE MONITORING</span>
+    <span class="badge warn"><span class="dot" style="background:var(--signal-amber)"></span>ROUTING WARN</span>
+    <span class="badge err"><span class="dot" style="background:var(--signal-red)"></span>ESCALATION</span>
+    <span class="badge info"><span class="dot" style="background:var(--signal-blue)"></span>INFO</span>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <span class="badge ink-fill">PROTOTYPE CLASS</span>
+    <span class="badge accent-fill">▪ AI-ENABLED</span>
+    <span class="badge">V.01</span>
+    <span class="badge">© 2026</span>
+  </div>
+</body></html>

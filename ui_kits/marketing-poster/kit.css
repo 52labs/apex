@@ -1,0 +1,219 @@
+/* Marketing-poster UI kit — local component styles.
+   Imports global tokens from the design system. */
+@import url("../../colors_and_type.css");
+
+html, body { margin: 0; padding: 0; background: var(--paper-1); color: var(--ink); }
+body { padding: 32px; font-family: var(--font-display); }
+
+.kit-header {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin: 0 auto 24px; max-width: 1120px;
+}
+.kit-header h1 {
+  font-family: var(--font-display); font-weight: 800; font-size: 28px;
+  letter-spacing: -0.02em; margin: 0;
+}
+.kit-header .meta {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--fg-ghost);
+}
+.poster-list {
+  max-width: 1120px; margin: 0 auto;
+  display: flex; flex-direction: column; gap: 32px;
+}
+
+/* ----- PosterStage -----
+   Each poster is laid out at a fixed 1280×720 design size,
+   then transform-scaled by its wrapper to fit the available
+   width. Lets us write absolute-positioned px values in JSX
+   without container-query math. */
+.stage-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--paper);
+  overflow: hidden;
+  container-type: inline-size;
+}
+.stage {
+  position: absolute;
+  top: 0; left: 0;
+  width: 1600px;
+  height: 900px;
+  background: var(--paper);
+  font-family: var(--font-display);
+  color: var(--ink);
+  transform-origin: top left;
+  /* transform set by JS via ResizeObserver */
+}
+.stage * { box-sizing: border-box; }
+
+/* Edge anchor utility */
+.edge {
+  position: absolute;
+}
+.edge-tl { top: 24px; left: 28px; }
+.edge-tc { top: 24px; left: 50%; transform: translateX(-50%); }
+.edge-tr { top: 24px; right: 28px; }
+.edge-ml { top: 50%; left: 28px; transform: translateY(-50%); }
+.edge-mr { top: 50%; right: 28px; transform: translateY(-50%); }
+.edge-bl { bottom: 24px; left: 28px; }
+.edge-bc { bottom: 24px; left: 50%; transform: translateX(-50%); }
+.edge-br { bottom: 24px; right: 28px; }
+
+/* ----- CornerMarker ----- */
+.corner-sq {
+  width: 14px; height: 14px; background: var(--orange);
+  display: inline-block; vertical-align: middle;
+}
+.corner-bracket {
+  width: 22px; height: 22px;
+  position: absolute;
+  border-style: solid;
+  border-color: var(--orange);
+  border-width: 0;
+}
+.corner-bracket.tl { top: 14px; left: 14px; border-top-width: 2px; border-left-width: 2px; }
+.corner-bracket.tr { top: 14px; right: 14px; border-top-width: 2px; border-right-width: 2px; }
+.corner-bracket.bl { bottom: 14px; left: 14px; border-bottom-width: 2px; border-left-width: 2px; }
+.corner-bracket.br { bottom: 14px; right: 14px; border-bottom-width: 2px; border-right-width: 2px; }
+
+/* ----- EyebrowChip ----- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 10px 5px;
+  line-height: 1;
+  background: var(--ink); color: var(--paper-0);
+}
+.eyebrow.accent { background: var(--orange); color: var(--paper-0); }
+.eyebrow.ghost  { background: transparent; color: var(--fg-ghost); padding-left: 0; padding-right: 0; }
+
+/* ----- MetaRow ----- */
+.meta-row {
+  display: inline-flex; align-items: center; gap: 14px;
+  font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink);
+}
+.meta-row.ghost { color: var(--fg-ghost); }
+.meta-row .sep { color: var(--fg-ghost); }
+.meta-row .sq  { width: 8px; height: 8px; background: var(--orange); display: inline-block; }
+
+/* ----- MegaHeadline ----- */
+.mega-wrap { position: relative; display: inline-block; line-height: 0.84; }
+.mega-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 160px;
+  letter-spacing: -0.035em;
+  line-height: 0.84;
+  text-transform: uppercase;
+  color: var(--ink);
+  position: relative; z-index: 1;
+  white-space: nowrap;
+}
+.mega-bar {
+  position: absolute;
+  left: -14px; right: -14px;
+  top: 55%;
+  height: 0.32em;
+  background: var(--orange);
+  transform: translateY(-50%) skewX(-22deg);
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+.mega-bar.no-skew { transform: translateY(-50%); }
+.mega-text.condensed { font-family: var(--font-condensed); letter-spacing: 0; font-size: 120px; }
+
+/* ----- DotMatrixHeadline ----- */
+.dotmatrix {
+  font-family: var(--font-dot);
+  font-weight: 400;
+  font-size: 88px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  display: block;
+  color: var(--ink);
+  font-variation-settings: "BLED" -50, "SCAN" 0;
+}
+.dotmatrix.accent { color: var(--orange); }
+
+/* ----- VerticalText ----- */
+.vert {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 56px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: var(--ink);
+}
+.vert.ghost { color: var(--ink-ghost); font-family: var(--font-mono); font-size: 14px; letter-spacing: 0.18em; font-weight: 500; }
+
+/* ----- SystemLog ----- */
+.syslog {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink);
+  max-width: 360px;
+}
+.syslog .title { letter-spacing: 0.06em; margin-bottom: 4px; }
+.syslog .k { color: var(--fg-ghost); }
+.syslog .v { color: var(--ink); }
+
+/* ----- AsciiSeparator ----- */
+.ascii {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--fg-ghost);
+  white-space: nowrap;
+  line-height: 1;
+}
+.ascii.accent { color: var(--orange); }
+
+/* ----- RegistrationMark ----- */
+.reg-mark {
+  font-family: var(--font-mono);
+  color: var(--ink-ghost);
+}
+
+/* ----- Background data bars (for Orbital Systems composition) ----- */
+.databars {
+  position: absolute; left: 0; right: 0; bottom: 0; top: 50%;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0 8px,
+    var(--paper-2) 8px 10px
+  );
+  mask-image: linear-gradient(to right,
+    transparent 0%, black 6%, black 22%, transparent 26%,
+    transparent 36%, black 40%, black 60%, transparent 64%,
+    transparent 72%, black 76%, black 96%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right,
+    transparent 0%, black 6%, black 22%, transparent 26%,
+    transparent 36%, black 40%, black 60%, transparent 64%,
+    transparent 72%, black 76%, black 96%, transparent 100%);
+  opacity: 0.85;
+}
+
+/* ----- Switcher chrome ----- */
+.switcher {
+  display: flex; gap: 6px; margin-bottom: 16px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.switcher button {
+  background: transparent; color: var(--ink); border: 1px solid var(--ink);
+  padding: 6px 10px; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit;
+  white-space: nowrap;
+}
+.switcher button.active { background: var(--ink); color: var(--paper-0); }
+.switcher button:hover:not(.active) { background: var(--orange); border-color: var(--orange); color: var(--paper-0); }

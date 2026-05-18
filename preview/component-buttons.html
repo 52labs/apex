@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="_base.css">
+<style>
+  body { padding: 18px 22px; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; margin-bottom: 14px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .btn {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper-0);
+    cursor: pointer;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn.accent { background: var(--orange); border-color: var(--orange); color: var(--paper-0); }
+  .btn.ghost  { background: transparent; color: var(--ink); }
+  .btn.hover  { background: var(--orange); border-color: var(--orange); }
+  .btn.press  { background: var(--ink); border-color: var(--ink); color: var(--paper-0); }
+  .btn.disabled { background: transparent; border-color: var(--paper-2); color: var(--paper-2); cursor: not-allowed; }
+  .row-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; color: var(--fg-2); text-transform: uppercase; width: 80px; }
+  .stack { display: flex; flex-direction: column; gap: 10px; }
+  .row { gap: 10px; align-items: center; }
+</style></head>
+<body>
+  <div class="meta">BUTTONS · MONO · UPPERCASE · SQUARE</div>
+  <div class="stack">
+    <div class="row"><span class="row-label">DEFAULT</span>
+      <button class="btn">DEPLOY ROUTE</button>
+      <button class="btn accent">▪ DISPATCH AI</button>
+      <button class="btn ghost">CANCEL</button>
+    </div>
+    <div class="row"><span class="row-label">STATE</span>
+      <button class="btn hover">HOVER →</button>
+      <button class="btn press">PRESSED</button>
+      <button class="btn disabled">DISABLED</button>
+    </div>
+  </div>
+</body></html>
