@@ -69,17 +69,3 @@ token set; the static `/preview` cards remain as specimens.
 | ![component-cards](assets/screenshots/preview/component-cards.png) | ![component-inputs](assets/screenshots/preview/component-inputs.png) |
 | ![component-frame](assets/screenshots/preview/component-frame.png) | ![component-log](assets/screenshots/preview/component-log.png) |
 | ![component-log-print](assets/screenshots/preview/component-log-print.png) | |
-
----
-
-## Reference posters
-
-The three poster references that define the visual language — warm paper,
-near-black ink, vermilion-orange accent, mega-display headlines sliced by an
-orange parallelogram bar, ASCII / mono metadata at the edges.
-
-![Apex Logistics](assets/posters/poster-apex-logistics.png)
-
-![Apex Text Labs](assets/posters/poster-text-labs.png)
-
-![Apex Orbital Systems](assets/posters/poster-orbital-systems.png)
