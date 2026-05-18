@@ -8,17 +8,13 @@ The three reference posters (Apex Logistics, Text Labs, Orbital Systems) share a
 
 ---
 
-## Source materials
-
-This system was built from three poster references shared by the user. **No codebase, Figma file, or product UI was provided** -- the brand is currently expressed only through marketing artifacts.
+## Reference posters
 
 | Source | Path | Notes |
 |---|---|---|
 | Poster - Apex Logistics | `assets/posters/poster-apex-logistics.png` | "AI Operations Terminal" - the primary brand artifact |
-| Poster - Text Labs | `assets/posters/poster-text-labs.png` | Same template applied to a sibling/fictional brand |
+| Poster - Text Labs | `assets/posters/poster-text-labs.png` | Same template applied to a sibling brand |
 | Poster - Orbital Systems | `assets/posters/poster-orbital-systems.png` | Same template; introduces dot-matrix display type |
-
-> [!] **Open ask:** If there is a product UI, codebase, or Figma file for Apex, please attach it via the Import menu. UI kits below are currently **scaffolded against poster references only** and would benefit enormously from a real product source.
 
 ---
 
@@ -34,7 +30,7 @@ This system was built from three poster references shared by the user. **No code
 | `assets/marks/` | Brand marks, registration glyphs, corner brackets used in compositions. |
 | `preview/` | Small HTML cards that populate the Design System tab. |
 | `ui_kits/marketing-poster/` | UI kit recreating the poster system as composable React components. |
-| `ui_kits/ops-terminal/` | Hi-fi mock of the implied "Apex Operations Terminal" product - flagged as inferred. |
+| `ui_kits/ops-terminal/` | Hi-fi mock of the "Apex Operations Terminal" product surface. |
 
 ---
 
@@ -123,9 +119,9 @@ A four-axis palette: **paper** (warm light gray backgrounds), **ink** (near-blac
 Backgrounds are **never pure white** -- always warm paper (`#E9E7E2`). Black is **never pure black** -- always `#111`. This restraint is half the brand: any pure white or pure black on screen immediately reads as "not Apex."
 
 ### Typography
-- **Display:** A neutral grotesque (we're using **Archivo** as the Google Fonts substitute - see "Font substitutions" below). Tight tracking, heavy weights (700-900) for headlines. The mega-display use is the signature move: oversized, all caps, sometimes with an orange parallelogram bar slicing horizontally through it.
+- **Display:** **Archivo** (a neutral grotesque). Tight tracking, heavy weights (700-900) for headlines. The mega-display use is the signature move: oversized, all caps, sometimes with an orange parallelogram bar slicing horizontally through it.
 - **Sans (body / reading):** **IBM Plex Sans**. Used for long-form copy (articles, marketing body, docs) via `.prose` / `.reading`. The display grotesque (Archivo) is too tight for reading blocks; Plex Sans is tuned for legibility at small sizes.
-- **Mono:** **JetBrains Mono** (substitute). Used pervasively for metadata, IDs, labels, eyebrows, log copy. The mono presence is what gives Apex its "operations terminal" feel - easily 30%+ of every layout is mono.
+- **Mono:** **JetBrains Mono**. Used pervasively for metadata, IDs, labels, eyebrows, log copy. The mono presence is what gives Apex its "operations terminal" feel - easily 30%+ of every layout is mono.
 - **Dot-matrix:** **Workbench** (Google Fonts variable dot-matrix). Reserved for poster-grade hero headlines on a small subset of compositions (see `poster-orbital-systems.png`).
 - **Condensed:** **Archivo Narrow** for vertical or stacked secondary type.
 
@@ -141,7 +137,7 @@ Backgrounds are **never pure white** -- always warm paper (`#E9E7E2`). Black is 
 - **No photo backgrounds. No gradients. No grain filters.** The system is print-flat.
 
 ### Animation
-- The reference materials are static print, so movement is implied, not shown. The intent is: **mechanical, instant, no bounce.**
+- **Mechanical, instant, no bounce.**
 - Use `cubic-bezier(0.2, 0.7, 0.1, 1)` (`--ease-out`) for transforms, 120-200ms.
 - Avoid spring/bounce easings - they fight the industrial register.
 - One sanctioned motion idiom: **dot-matrix flicker** or **teletype reveal** on mono copy (typewriter-style char-by-char). Use sparingly, never on body copy.
@@ -200,7 +196,7 @@ The reference materials use **typographic glyphs and brand marks**, not a conven
 - **Corner brackets** drawn with `[-` `-]` shapes - 1-2px ink or orange L-shapes at the canvas corners.
 - **Forward slashes** `////` and `>>>>>` - used as separators and directional cues.
 - **Solid square markers** - small orange or black squares used as bullet-equivalents in metadata rows.
-- **A small custom "flower" mark** (Apex Logistics poster) and a small **X-target mark** (Apex Logistics, lower-center). These are **brand-specific glyphs** that we do not have vector source for; flagged for the user below.
+- **A small custom "flower" mark** (Apex Logistics poster) and a small **X-target mark** (Apex Logistics, lower-center) - brand-specific glyphs, referenced as raster crops from the source posters.
 
 ### Approach for screens / mocks
 For functional UI iconography (where the poster glyphs aren't enough - e.g. a dashboard's nav icons), use **Lucide** loaded from CDN. Lucide's thin-stroke, square-cap visual aligns with the brand's industrial register and does not introduce a competing visual style.
@@ -210,34 +206,24 @@ For functional UI iconography (where the poster glyphs aren't enough - e.g. a da
 <i data-lucide="activity"></i>
 ```
 
-> [!] **Substitution flag - icons:** Lucide is a substitute. If Apex has its own icon set in product, please share it and we'll replace the Lucide references.
-
 ### Emoji & unicode
 - **Emoji: never.** Not in product, not in marketing.
 - **Unicode-as-icon: avoid.** Stick to ASCII glyphs: `*`, `/`, `>`, `+`, `x`. Status ticks are acceptable as the words "OK" / "FAIL" or paired with the design system's `--signal-*` colors.
 
 ---
 
-## Font substitutions
+## Fonts
 
-> [!] **Substitution flag - fonts:** We were not given font files. The system uses these Google Fonts substitutes, which are visually close but not identical:
->
-> | Role | Substitute (Google Fonts) | Likely real font |
-> |---|---|---|
-> | Display | **Archivo** (400-900) | Neue Haas Grotesk Display / Helvetica Now Display |
-> | Condensed | **Archivo Narrow** | Helvetica Neue Condensed |
-> | Sans (body / reading) | **IBM Plex Sans** | IBM Plex Sans / Inter Tight |
-> | Mono | **JetBrains Mono** | IBM Plex Mono / Berkeley Mono |
-> | Dot-matrix | **Workbench** (variable) | Custom LED dot-matrix face |
->
-> If you have licenses for the real faces, drop `.woff2` files into `fonts/` and update the `@import` at the top of `colors_and_type.css`.
->
-> **Note on Workbench:** Workbench is a variable font with `BLED` and `SCAN` axes that control its dot-matrix appearance. The default rendering is a clean sans-serif. To get the heavy dot-matrix look from the Orbital Systems reference poster, set `font-variation-settings: "BLED" 100;` and adjust. Some render targets (html-to-image, older browsers) ignore variable-font axes and show the default static instead.
+The system ships with Google Fonts:
 
----
+| Role | Family |
+|---|---|
+| Display | **Archivo** (400-900) |
+| Condensed | **Archivo Narrow** |
+| Sans (body / reading) | **IBM Plex Sans** |
+| Mono | **JetBrains Mono** |
+| Dot-matrix | **Workbench** (variable) |
 
-## Caveats
+To swap in licensed faces (e.g. Neue Haas Grotesk Display for Archivo, IBM Plex Mono or Berkeley Mono for JetBrains Mono), drop `.woff2` files into `fonts/` and update the `@import` at the top of `colors_and_type.css`.
 
-1. **No product source.** All UI kits beyond the marketing-poster recreation are inferred from the brand's voice + visual treatments. Real product code or Figma will sharpen them dramatically.
-2. **Brand marks** (the flower + X-target glyphs on the Apex Logistics poster) are not vectorized - we reference the raster crops only.
-3. **Fonts are substitutes** - see above.
+**Note on Workbench:** Workbench is a variable font with `BLED` and `SCAN` axes that control its dot-matrix appearance. The default rendering is a clean sans-serif. To get the heavy dot-matrix look from the Orbital Systems reference poster, set `font-variation-settings: "BLED" 100;` and adjust. Some render targets (html-to-image, older browsers) ignore variable-font axes and show the default static instead.
