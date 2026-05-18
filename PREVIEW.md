@@ -9,26 +9,26 @@
 
 ---
 
-## Reference posters
+## UI kit — Website
 
-The three poster references that define the visual language — warm paper,
-near-black ink, vermilion-orange accent, mega-display headlines sliced by an
-orange parallelogram bar, ASCII / mono metadata at the edges.
+Responsive section components for actual web pages — status strip, sticky
+header, mega hero with orange parallelogram bar, orange callout band,
+hairline-grid feature blocks, stats band, ink CTA, inverse footer. The
+counterpart to the marketing-poster kit: posters are fixed stages,
+websites reflow.
 
-![Apex Logistics](assets/posters/poster-apex-logistics.png)
-
-![Apex Text Labs](assets/posters/poster-text-labs.png)
-
-![Apex Orbital Systems](assets/posters/poster-orbital-systems.png)
+![Apex website UI kit](assets/screenshots/ui_kits/website.png)
 
 ---
 
-## UI kit — Marketing posters
+## UI kit — Components
 
-Composable React recreation of the poster system. Three layouts share one
-template-grade grid (eyebrow chips, vertical type, mega headline, system log).
+Composable product surface components — buttons, fields, badges, status
+chips and banners, cards, modal, popover, drawer, empty/loading/error
+states. Square corners, 1px ink hairlines, mono labels. Imports the full
+token set; the static `/preview` cards remain as specimens.
 
-![Apex marketing-poster UI kit](assets/screenshots/ui_kits/marketing-poster.png)
+![Apex components UI kit](assets/screenshots/ui_kits/components.png)
 
 ---
 
@@ -69,3 +69,17 @@ template-grade grid (eyebrow chips, vertical type, mega headline, system log).
 | ![component-cards](assets/screenshots/preview/component-cards.png) | ![component-inputs](assets/screenshots/preview/component-inputs.png) |
 | ![component-frame](assets/screenshots/preview/component-frame.png) | ![component-log](assets/screenshots/preview/component-log.png) |
 | ![component-log-print](assets/screenshots/preview/component-log-print.png) | |
+
+---
+
+## Reference posters
+
+The three poster references that define the visual language — warm paper,
+near-black ink, vermilion-orange accent, mega-display headlines sliced by an
+orange parallelogram bar, ASCII / mono metadata at the edges.
+
+![Apex Logistics](assets/posters/poster-apex-logistics.png)
+
+![Apex Text Labs](assets/posters/poster-text-labs.png)
+
+![Apex Orbital Systems](assets/posters/poster-orbital-systems.png)

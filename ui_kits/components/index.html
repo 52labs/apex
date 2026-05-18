@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Apex · Components UI Kit</title>
+  <link rel="stylesheet" href="kit.css" />
+  <style>
+    html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); font-family: var(--font-display); }
+    main { max-width: 1180px; margin: 0 auto; padding: 40px 32px 96px; }
+
+    /* page chrome */
+    .head {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 24px;
+      padding-bottom: 18px; margin-bottom: 28px; border-bottom: 1px solid var(--ink);
+    }
+    .head h1 { font-family: var(--font-display); font-weight: 800; font-size: 36px; letter-spacing: -0.025em; margin: 0; line-height: 1; }
+    .head .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2); display: flex; gap: 14px; }
+    .head .meta .sq { width: 8px; height: 8px; background: var(--orange); display: inline-block; margin-right: 6px; vertical-align: middle; }
+
+    /* section */
+    .section { margin-top: 56px; }
+    .section h2 {
+      font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 4px;
+      text-transform: uppercase;
+    }
+    .section .sub {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2);
+      margin-bottom: 18px;
+    }
+    .section h3 {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--fg); margin: 24px 0 10px;
+    }
+
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .stack { display: flex; flex-direction: column; gap: 12px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+    .swatch {
+      background: var(--bg-raised); border: 1px solid var(--rule-soft);
+      padding: 14px; display: flex; flex-direction: column; gap: 10px;
+    }
+    .swatch .cap {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--fg-2);
+    }
+
+    /* popover demo holder */
+    .pop-holder { position: relative; padding: 80px 20px 100px; background: var(--bg-raised); border: 1px solid var(--rule-soft); }
+    .pop-holder .anchor { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink); text-transform: uppercase; padding: 6px 10px; border: 1px solid var(--ink); cursor: default; }
+    .pop-holder .ax-popover { position: absolute; top: 56px; left: 24px; }
+
+    /* fake drawer container (so it renders without going fullscreen on the page) */
+    .drawer-holder {
+      position: relative; height: 360px; overflow: hidden;
+      border: 1px solid var(--rule-soft); background: var(--bg-raised);
+    }
+    .drawer-holder .ax-drawer { position: absolute; height: 100%; }
+    .drawer-holder .ax-scrim   { position: absolute; }
+
+    /* modal holder */
+    .modal-holder {
+      position: relative; height: 360px; overflow: hidden;
+      border: 1px solid var(--rule-soft); background: var(--bg-raised);
+    }
+    .modal-holder .ax-modal,
+    .modal-holder .ax-scrim { position: absolute; }
+    .modal-holder .ax-modal { top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(440px, 90%); }
+  </style>
+</head>
+<body>
+<main>
+  <div class="head">
+    <div>
+      <h1>APEX · COMPONENTS</h1>
+      <div class="meta" style="margin-top:8px;">
+        <span><span class="sq"></span>KIT: COMPONENTS</span><span>V.01</span><span>© 2026</span>
+      </div>
+    </div>
+    <div class="meta" style="text-align:right;">
+      <span>SQUARE · HAIRLINE · MONO LABELS</span>
+    </div>
+  </div>
+
+  <!-- ============ BUTTONS ============ -->
+  <section class="section">
+    <h2>Buttons</h2>
+    <div class="sub">Mono · uppercase · square · 1px ink border</div>
+
+    <h3>Tones</h3>
+    <div class="row">
+      <button class="ax-btn">Deploy route</button>
+      <button class="ax-btn ax-btn--accent">▪ Dispatch AI</button>
+      <button class="ax-btn ax-btn--ghost">Cancel</button>
+      <button class="ax-btn" disabled>Unavailable</button>
+    </div>
+
+    <h3>Sizes</h3>
+    <div class="row">
+      <button class="ax-btn ax-btn--sm">Compact</button>
+      <button class="ax-btn">Default</button>
+      <button class="ax-btn ax-btn--lg">Prominent</button>
+    </div>
+
+    <h3>Block</h3>
+    <button class="ax-btn ax-btn--accent ax-btn--block">▪ Commit to dispatch</button>
+  </section>
+
+  <!-- ============ FORMS ============ -->
+  <section class="section">
+    <h2>Forms</h2>
+    <div class="sub">Inputs · Textarea · Checkbox · Radio</div>
+
+    <div class="grid-2">
+      <label class="ax-field">
+        <span class="ax-label">Vehicle ID</span>
+        <input class="ax-input" value="AX-3897" />
+        <span class="ax-hint">format: AX-####</span>
+      </label>
+      <label class="ax-field">
+        <span class="ax-label">Route</span>
+        <input class="ax-input" placeholder="EST-—" />
+        <span class="ax-hint">required for dispatch</span>
+      </label>
+      <label class="ax-field">
+        <span class="ax-label">Cargo manifest</span>
+        <textarea class="ax-textarea" placeholder="Itemize contents, one per line."></textarea>
+      </label>
+      <label class="ax-field">
+        <span class="ax-label">Operator</span>
+        <input class="ax-input" value="K. Park" aria-invalid="true" />
+        <span class="ax-hint ax-hint--error">Operator not in active roster.</span>
+      </label>
+    </div>
+
+    <h3>Toggles</h3>
+    <div class="row" style="gap:24px;">
+      <label style="display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:13px;">
+        <input type="checkbox" class="ax-check" checked /> Autonomous dispatch
+      </label>
+      <label style="display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:13px;">
+        <input type="checkbox" class="ax-check" /> Human validation required
+      </label>
+      <label style="display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:13px;">
+        <input type="radio" name="prio" class="ax-radio" checked /> Standard
+      </label>
+      <label style="display:inline-flex; align-items:center; gap:8px; font-family:var(--font-mono); font-size:13px;">
+        <input type="radio" name="prio" class="ax-radio" /> Priority
+      </label>
+    </div>
+  </section>
+
+  <!-- ============ BADGES & STATUS ============ -->
+  <section class="section">
+    <h2>Badges &amp; Status</h2>
+    <div class="sub">Semantic status layer over the --signal-* raw tokens</div>
+
+    <h3>Badges</h3>
+    <div class="row">
+      <span class="ax-badge">V.01</span>
+      <span class="ax-badge ax-badge--ink">Prototype Class</span>
+      <span class="ax-badge ax-badge--accent">▪ AI-enabled</span>
+      <span class="ax-badge ax-badge--ok">OK · Online</span>
+      <span class="ax-badge ax-badge--warn">Warn · Throttled</span>
+      <span class="ax-badge ax-badge--error">Error · Halted</span>
+      <span class="ax-badge ax-badge--info">Info · Queued</span>
+    </div>
+
+    <h3>Inline status</h3>
+    <div class="row" style="gap:24px;">
+      <span class="ax-status" data-tone="ok"><span class="ax-status__dot"></span>Active monitoring</span>
+      <span class="ax-status" data-tone="warn"><span class="ax-status__dot"></span>Routing warn</span>
+      <span class="ax-status" data-tone="error"><span class="ax-status__dot"></span>Escalation</span>
+      <span class="ax-status" data-tone="info"><span class="ax-status__dot"></span>Queued</span>
+      <span class="ax-status" data-tone="neutral"><span class="ax-status__dot"></span>Idle</span>
+    </div>
+
+    <h3>Status block (banner)</h3>
+    <div class="stack" style="max-width:720px;">
+      <div class="ax-status ax-status--block" data-tone="info">
+        <span class="ax-status__dot"></span>
+        <span class="ax-status__body">
+          <span class="ax-status__title">REPORT ID · SUPPLY-CHAIN-482</span>
+          <span class="ax-status__msg">Dispatch AI is queued. Human validation required before network reroute.</span>
+        </span>
+      </div>
+      <div class="ax-status ax-status--block" data-tone="warn">
+        <span class="ax-status__dot"></span>
+        <span class="ax-status__body">
+          <span class="ax-status__title">ROUTING WARN · EST-044</span>
+          <span class="ax-status__msg">Freight density spikes detected in western corridor. Seasonal routing inefficiency.</span>
+        </span>
+      </div>
+      <div class="ax-status ax-status--block" data-tone="error">
+        <span class="ax-status__dot"></span>
+        <span class="ax-status__body">
+          <span class="ax-status__title">FAULT · AX-3897</span>
+          <span class="ax-status__msg">Vehicle uplink lost at 14:22:08 UTC. Last known node: N-12. Awaiting human acknowledgement.</span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CARDS ============ -->
+  <section class="section">
+    <h2>Cards</h2>
+    <div class="sub">A card is a miniature poster</div>
+
+    <div class="grid-3">
+      <div class="ax-card">
+        <div class="ax-card__head"><span>▪ AX-3897</span><span>R-044</span></div>
+        <div class="ax-card__title">Freight throughput</div>
+        <div class="ax-card__body">Western corridor sees a 12.4% seasonal uplift versus baseline. AI recommends rerouting 6 of 14 active vehicles to eastern corridor.</div>
+        <div class="ax-card__foot"><span>WESTERN CORRIDOR</span><span>+12.4%</span></div>
+      </div>
+      <div class="ax-card ax-card--inverse">
+        <div class="ax-card__head"><span>NODE 04 / 12</span><span>© 2026</span></div>
+        <div class="ax-card__title">Dispatch AI</div>
+        <div class="ax-card__body">Three of twelve nodes operating under autonomous control. Human validation remains gated.</div>
+        <div class="ax-card__foot"><span>STATUS</span><span style="color:var(--orange);">▪ LIVE</span></div>
+      </div>
+      <div class="ax-card ax-card--sunk">
+        <div class="ax-card__head"><span>OSP-01</span><span>V.01</span></div>
+        <div class="ax-card__title">Closed-loop energy</div>
+        <div class="ax-card__body">Continuous power delivery from orbital capture. Autonomous regulation; no operator action required.</div>
+        <div class="ax-card__foot"><span>AUTONOMOUS</span><span>OK</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OVERLAYS ============ -->
+  <section class="section">
+    <h2>Overlays</h2>
+    <div class="sub">Flat, hairline-led elevation. Scrim is a paper-tone wash, not translucent black.</div>
+
+    <div class="grid-2" style="gap:24px;">
+      <div>
+        <h3>Modal · dialog</h3>
+        <div class="modal-holder">
+          <div class="ax-scrim" data-open="true"></div>
+          <div class="ax-modal" data-open="true">
+            <div class="ax-modal__head">
+              <div class="ax-modal__head-left">
+                <span class="ax-modal__eyebrow">CONFIRM · DISPATCH</span>
+                <span class="ax-modal__title">Commit alternate route?</span>
+              </div>
+              <button class="ax-modal__close" aria-label="Close">×</button>
+            </div>
+            <div class="ax-modal__body">
+              Dispatch AI recommends rerouting six vehicles from corridor EST-044 to EST-072.
+              Estimated time-on-road impact is +14 minutes per unit.
+              Human validation will be logged against operator <strong>K. Park</strong>.
+            </div>
+            <div class="ax-modal__foot">
+              <button class="ax-btn ax-btn--ghost ax-btn--sm">Decline</button>
+              <button class="ax-btn ax-btn--accent ax-btn--sm">▪ Commit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3>Drawer · side panel</h3>
+        <div class="drawer-holder">
+          <div class="ax-scrim" data-open="true"></div>
+          <aside class="ax-drawer" data-open="true" style="width: 320px;">
+            <div class="ax-drawer__head">
+              <span class="ax-drawer__title">Vehicle AX-3897</span>
+              <button class="ax-drawer__close" aria-label="Close">×</button>
+            </div>
+            <div class="ax-drawer__body">
+              <div style="display:flex; flex-direction:column; gap:10px; font-family: var(--font-mono); font-size:13px; line-height:1.5;">
+                <div><span style="color:var(--fg-2);">ROUTE</span> · EST-044</div>
+                <div><span style="color:var(--fg-2);">NODE</span> · N-12</div>
+                <div><span style="color:var(--fg-2);">UPLINK</span> · <span class="ax-status" data-tone="ok"><span class="ax-status__dot"></span>OK</span></div>
+                <div><span style="color:var(--fg-2);">LAST PING</span> · 14:21:50 UTC</div>
+              </div>
+            </div>
+            <div class="ax-drawer__foot">
+              <button class="ax-btn ax-btn--ghost ax-btn--sm">Close</button>
+              <button class="ax-btn ax-btn--sm">Open log</button>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <h3>Popover</h3>
+    <div class="pop-holder">
+      <span class="anchor">▪ Status · hover</span>
+      <div class="ax-popover" data-open="true">
+        <div class="ax-popover__arrow"></div>
+        <div class="ax-popover__head">UPLINK · NODE 12</div>
+        <div class="ax-popover__body">Signal stable. Last ping <strong>14:21:50 UTC</strong>. No retries in the last 60s.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STATES ============ -->
+  <section class="section">
+    <h2>States</h2>
+    <div class="sub">Empty · Loading · Error — institutional voice</div>
+
+    <div class="grid-3" style="gap:16px;">
+      <div class="ax-state">
+        <span class="ax-state__eyebrow"><span class="ax-status__dot" style="background:var(--ink-ghost);"></span>NO RECORDS</span>
+        <h3 class="ax-state__title" style="text-transform:uppercase; font-size:24px; margin:0;">Manifest empty.</h3>
+        <p class="ax-state__msg">No dispatch records exist for the selected corridor. Filters may be too narrow.</p>
+        <div class="ax-state__actions">
+          <button class="ax-btn ax-btn--ghost ax-btn--sm">Clear filters</button>
+          <button class="ax-btn ax-btn--sm">New dispatch</button>
+        </div>
+      </div>
+
+      <div class="ax-state ax-state--loading">
+        <span class="ax-state__eyebrow"><span class="ax-status__dot" style="background:var(--orange);"></span>PROCESSING</span>
+        <h3 class="ax-state__title" style="text-transform:uppercase; font-size:24px; margin:0;">Streaming…</h3>
+        <div class="ax-state__log">
+          <span class="ax-state__log-line">▪ Connecting to secure node.</span>
+          <span class="ax-state__log-line">▪ Streaming records.</span>
+          <span class="ax-state__log-line">▪ Indexing for retrieval.</span>
+        </div>
+        <div class="ax-progress" style="width:100%;"></div>
+      </div>
+
+      <div class="ax-state">
+        <span class="ax-state__eyebrow"><span class="ax-status__dot" style="background:var(--status-error);"></span>FAULT DETECTED · F-08</span>
+        <h3 class="ax-state__title" style="text-transform:uppercase; font-size:24px; margin:0;">Uplink lost.</h3>
+        <p class="ax-state__msg">Vehicle AX-3897 has not reported in 90s. Operator acknowledgement required before AI escalation.</p>
+        <div class="ax-state__actions">
+          <button class="ax-btn ax-btn--ghost ax-btn--sm">Acknowledge</button>
+          <button class="ax-btn ax-btn--accent ax-btn--sm">▪ Escalate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

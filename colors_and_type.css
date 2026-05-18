@@ -3,7 +3,7 @@
    Base tokens + semantic aliases. Import once at the document root.
    ============================================================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Workbench:BLED,SCAN@-50..100,-50..50&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Archivo+Narrow:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Workbench:BLED,SCAN@-50..100,-50..50&display=swap");
 
 :root {
   /* ---------- COLOR -- RAW ---------- */
@@ -24,7 +24,8 @@
   --orange-deep:    #C8420C;   /* pressed / hover */
   --orange-tint:    #F38256;   /* tints, used sparingly */
 
-  /* System */
+  /* Signal -- raw status hues (do NOT use directly in product;
+     use the semantic --status-* aliases below). */
   --signal-red:     #D42018;
   --signal-amber:   #E8A317;
   --signal-green:   #2E7D32;
@@ -47,9 +48,26 @@
   --rule:           var(--ink);         /* hairlines are ink, not gray */
   --rule-soft:      var(--paper-2);
 
+  /* ---------- STATUS -- SEMANTIC ----------
+     Use these in product. They map roles onto the signal hues so
+     callers never reach for raw --signal-* tokens directly.
+     Pairing rule: <fg> on paper bg, <bg-tint> on a status surface,
+     <fg> over <bg-tint> stays AA on warm paper.                 */
+  --status-ok:        var(--signal-green);
+  --status-ok-bg:     #DDE7DC;
+  --status-warn:      var(--signal-amber);
+  --status-warn-bg:   #EFE0BE;
+  --status-error:     var(--signal-red);
+  --status-error-bg:  #EDD3CF;
+  --status-info:      var(--signal-blue);
+  --status-info-bg:   #D3DCE6;
+  --status-neutral:   var(--ink-3);
+  --status-neutral-bg:var(--paper-1);
+
   /* ---------- TYPE -- FAMILIES ---------- */
   --font-display:   "Archivo", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-condensed: "Archivo Narrow", "Archivo", "Helvetica Neue Condensed", sans-serif;
+  --font-sans:      "IBM Plex Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;  /* body / reading */
   --font-mono:      "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --font-dot:       "Workbench", "JetBrains Mono", monospace;   /* dot-matrix display */
 
@@ -101,14 +119,35 @@
      bg-color shifts and 1px ink rules. A single utility shadow
      is provided for floating overlays only.                     */
   --shadow-float: 0 12px 32px -8px rgba(17,17,17,0.18);
+  --shadow-overlay: 0 24px 64px -12px rgba(17,17,17,0.32);   /* modal / drawer scrim companion */
 
   /* ---------- MOTION ---------- */
+  /* Apex motion is mechanical: short, linear-ish, no bounce. The
+     core token is --ease-out (a sharp out-curve). --ease-snap is
+     the closest the system gets to "playful" and must never be
+     used on content -- only on chrome state changes (button press,
+     chip select, focus ring). Never use --ease-in alone for entry. */
   --ease-out:   cubic-bezier(0.2, 0.7, 0.1, 1);
   --ease-in:    cubic-bezier(0.6, 0, 0.8, 0.3);
   --ease-snap:  cubic-bezier(0.2, 0.9, 0.2, 1.05);
   --t-fast:     120ms;
   --t-base-d:   200ms;
   --t-slow:     400ms;
+
+  /* ---------- MOTION -- PER-COMPONENT ----------
+     Documented so every component reaches for the same primitive.
+     Override locally only when there is a specific reason.        */
+  --motion-hover:    background-color var(--t-fast) var(--ease-out),
+                     color            var(--t-fast) var(--ease-out),
+                     border-color     var(--t-fast) var(--ease-out);
+  --motion-press:    transform var(--t-fast) var(--ease-out);
+  --motion-focus:    box-shadow var(--t-fast) var(--ease-out),
+                     outline-color var(--t-fast) var(--ease-out);
+  --motion-overlay-in:  opacity var(--t-base-d) var(--ease-out),
+                        transform var(--t-base-d) var(--ease-out);
+  --motion-overlay-out: opacity var(--t-fast) var(--ease-in),
+                        transform var(--t-fast) var(--ease-in);
+  --motion-reveal:   opacity var(--t-slow) var(--ease-out);   /* teletype char-by-char loop */
 }
 
 /* =============================================================
@@ -192,6 +231,36 @@ p, .body {
 }
 .body-sm { font-size: var(--t-sm); line-height: 1.5; }
 .lead    { font-size: var(--t-md); line-height: 1.5; color: var(--fg); }
+
+/* --- Prose / reading -- IBM Plex Sans ---
+   Use --font-sans for long-form copy (articles, marketing body,
+   docs). The display grotesque (Archivo) is too tight for reading
+   blocks; the body sans is tuned for legibility at small sizes.   */
+.prose, .reading {
+  font-family: var(--font-sans);
+  font-size: var(--t-md);
+  line-height: 1.6;
+  color: var(--fg-1);
+  text-wrap: pretty;
+}
+.prose p, .reading p { font-family: inherit; font-size: inherit; line-height: inherit; color: inherit; margin: 0 0 var(--s-5); }
+.prose a, .reading a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.prose a:hover, .reading a:hover { color: var(--orange); }
+.prose strong, .reading strong { font-weight: 600; color: var(--fg); }
+.prose em, .reading em { font-style: normal; background: var(--orange); color: var(--paper-0); padding: 0 4px; }
+.prose blockquote, .reading blockquote {
+  margin: var(--s-6) 0;
+  padding-left: var(--s-5);
+  border-left: 2px solid var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--t-lg);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--fg);
+}
+.prose ul, .reading ul { padding-left: 0; list-style: none; }
+.prose ul > li, .reading ul > li { position: relative; padding-left: var(--s-5); margin-bottom: var(--s-3); }
+.prose ul > li::before, .reading ul > li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; background: var(--orange); }
 
 /* --- Mono -- technical metadata, IDs, labels ---
    This is the "operations terminal" voice. Tracked, uppercase
